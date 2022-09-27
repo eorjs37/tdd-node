@@ -1,4 +1,3 @@
-const { application } = require("express");
 const express = require("express");
 
 //Constants
@@ -10,6 +9,17 @@ const app = express();
 
 //Routes
 const productRoutes = require("./routes");
+
+//Mongoose
+const mongoose = require("mongoose");
+
+mongoose
+    .connect("mongodb+srv://maxgunchoi:chleorjs12~@cluster1.drtpwyu.mongodb.net/products?retryWrites=true&w=majority", {
+        useNewUrlParser: true,
+    })
+    .then(() => console.log(`MongoDb Connected`))
+    .catch((err) => console.log(err));
+
 app.use("/api/products", productRoutes);
 app.use(express.json());
 app.get("/", (req, res) => {
