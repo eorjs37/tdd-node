@@ -1,4 +1,4 @@
-exports.hello = (req, res) => {
-    console.log("/api/products/one");
-    res.send("안녕하세요");
+const productModel = require("../models/Product");
+exports.creatProduct = () => {
+    productModel.create();
 };
