@@ -1,7 +1,7 @@
 const express = require("express");
-
+require("module-alias/register");
 //Constants
-const PORT = 5000;
+const PORT = 5001;
 const HOST = "127.0.0.1";
 
 //App
