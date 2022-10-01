@@ -1,5 +1,6 @@
 const peopleModel = require("../models/People");
 
-exports.createPeople = () => {
-    res.send("creaete people");
+exports.createPeople = (req, res, next) => {
+    const createPeople = peopleModel.create(req.body);
+    res.status(201).json(createPeople);
 };
