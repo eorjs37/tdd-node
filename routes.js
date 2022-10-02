@@ -3,7 +3,7 @@ var router = express.Router();
 const productController = require("./controller/product");
 const peopleController = require("@/controller/people");
 
-router.get("/one", productController.hello);
+router.post("/", productController.creatProduct);
 router.get("/people", peopleController.createPeople);
 
 module.exports = router;

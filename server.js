@@ -13,12 +13,17 @@ const productRoutes = require("./routes");
 //Mongoose
 const mongoose = require("mongoose");
 
+//body-parser
+const bodyParser = require("body-parser");
+
 mongoose
     .connect("mongodb+srv://maxgunchoi:chleorjs12~@cluster1.drtpwyu.mongodb.net/products?retryWrites=true&w=majority", {
         useNewUrlParser: true,
     })
     .then(() => console.log(`MongoDb Connected`))
     .catch((err) => console.log(err));
+
+app.use(bodyParser.json());
 
 app.use("/api/products", productRoutes);
 app.use(express.json());
