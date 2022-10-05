@@ -1,7 +1,7 @@
 const express = require("express");
 require("module-alias/register");
 //Constants
-const PORT = 5001;
+const PORT = 5000;
 const HOST = "127.0.0.1";
 
 //App
@@ -30,6 +30,13 @@ app.use(express.json());
 app.get("/", (req, res) => {
     res.send("Hello Wordsdsld");
 });
+app.use((error, req, res, next) => {
+    res.status(500).json({
+        message: error.message,
+    });
+});
 
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
+
+module.exports = app;
