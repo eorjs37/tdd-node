@@ -4,6 +4,7 @@ const productController = require("./controller/product");
 const peopleController = require("./controller/people");
 
 router.post("/", productController.creatProduct);
+router.get("/", productController.getProducts);
 router.post("/people", peopleController.createPeople);
 
 module.exports = router;
