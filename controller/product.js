@@ -31,6 +31,19 @@ exports.getProductById = async (req, res, next) => {
   }
 };
 
+exports.updateProduct = async (req, res, next) => {
+  try {
+    let updatedProduct = await productModel.findByIdAndUpdate(req.params.productId, req.body, { new: true });
+    if (updatedProduct) {
+      res.status(200).json(updatedProduct);
+    } else {
+      res.status(404).send();
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
 exports.hello = (_, res, next) => {
   res.send("hello world");
 };
