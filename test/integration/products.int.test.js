@@ -60,3 +60,18 @@ it("should return 404 on PUT /api/products", async () => {
   });
   expect(res.statusCode).toBe(404);
 });
+
+it("DELETE /api/products", async () => {
+  const res = await request(app)
+    .delete("/api/products/" + firstProduct._id)
+    .send();
+  expect(res.statusCode).toBe(200);
+});
+
+it("DELETE id doenst exists /api/products/:productId", async () => {
+  const res = await request(app)
+    .delete("/api/products/" + firstProduct._id)
+    .send();
+
+  expect(res.statusCode).toBe(404);
+});
